@@ -1,0 +1,83 @@
+<header>
+  <img src="assets/images/bm.jpg" alt="Boggeymen Society Logo" class="logo" />
+  <h1>Boggeymen Golf Society</h1>
+</header>
+
+
+<main class="content-container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="players-tab" data-bs-toggle="tab" data-bs-target="#welcome" type="button"
+        role="tab">
+        Welcome
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="courses-tab" data-bs-toggle="tab" data-bs-target="#plan" type="button" role="tab">
+        2025 Plan
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="courses-tab" data-bs-toggle="tab" data-bs-target="#historic" type="button"
+        role="tab">
+        Past Results
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="courses-tab" data-bs-toggle="tab" data-bs-target="#outingcalc" type="button"
+        role="tab">
+        Outing Calculator (Panel)
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="courses-tab" data-bs-toggle="tab" data-bs-target="#adjustments" type="button"
+        role="tab">
+        Adjust Handicaps (Panel)
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="courses-tab" data-bs-toggle="tab" data-bs-target="#enter" type="button" role="tab">
+        Enter A Card (Panel/player)
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-3" id="myTabContent">
+    <div class="tab-pane fade show active" id="welcome" role="tabpanel">
+      <app-welcome></app-welcome>
+    </div>
+    <div class="tab-pane fade" id="plan" role="tabpanel">
+      The plan for the year (courses dates etc)
+    </div>
+    <div class="tab-pane fade" id="historic" role="tabpanel">
+      View all past events (placings, handicaps at the time, etc)
+    </div>
+    <div class="tab-pane fade" id="outingcalc" role="tabpanel">
+      <app-hcp-calc></app-hcp-calc>
+    </div>
+    <div class="tab-pane fade" id="adjustments" role="tabpanel">
+      An Admin can select a player and adjust handicap
+    </div>
+    <div class="tab-pane fade" id="enter" role="tabpanel">
+      Enter a General Play card here - Handicap adjustments will take effect
+    </div>
+  </div>
+</main>
+
+<!-- footer component -->
+
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 Boggeymen Golf Society</p>
+
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+
+      <!-- <a href="https://twitter.com" target="_blank">Twitter</a> -->
+
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+
+      <a href="mailto:info@greenteegolf.com">Email Us</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,51 @@
+<div class="container my-5">
+    <div class="p-4 bg-light rounded shadow-sm">
+        <h2 class="mb-3">Welcome to the Boggeymen Golf Society ⛳</h2>
+        <p>
+            Whether you're a seasoned golfer or just starting out, we're thrilled to have you here.
+        </p>
+        <p>
+            Founded on camaraderie, competition, and a shared love for the game, the Boggeymen Golf Society brings
+            together players of all levels for unforgettable rounds, friendly banter, and a few well-earned bogeys.
+        </p>
+        <p>
+            We play across some of the finest courses in the region, with regular events, leaderboards, and a handicap
+            system that keeps things fair and fun.
+        </p>
+        <p>
+            Our mission is simple: enjoy the game, support each other, and build a community that celebrates golf in all
+            its glory — from the perfect drive to the not-so-perfect putt.
+        </p>
+        <p class="fw-bold">
+            So grab your clubs, check the leaderboard, and get ready to tee off with the Boggeymen - and remember "Just
+            Do Better"
+        </p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="p-4 bg-light rounded shadow-sm">
+        <h2>Current Active Members 2025 🏌️</h2>
+        <div class="row">
+            <div class="col-md-4" *ngFor="let player of players">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ player.name }}</h5>
+                        <p class="card-text">Handicap: {{ player.handicap | trimDecimal }}</p>
+                        <p class="card-text">Year Joined: {{ player.year_joined }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container">
+    <ul class="list-unstyled">
+        <li *ngFor="let player of players" class="py-2 border-bottom">
+            <strong>{{ player.name }}</strong><br>
+            Handicap: {{ player.handicap | trimDecimal }}<br>
+            Year Joined: {{ player.year_joined }}
+        </li>
+    </ul>
+</div> -->

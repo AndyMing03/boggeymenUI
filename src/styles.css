@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+body,
+h1,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styling */
+
+header {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Main content container */
+
+.content-container {
+    background-color: white;
+    max-width: 1100px;
+    min-height: 45vh;
+    margin: 40px auto;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.content-container h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: #2e7d32;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}

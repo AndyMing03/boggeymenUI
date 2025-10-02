@@ -1,0 +1,14 @@
+.nav-tabs .nav-link {
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    color: #333;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #2e7d32;
+    /* Bootstrap green */
+    color: #fff;
+    border-color: #198754 #198754 #fff;
+}

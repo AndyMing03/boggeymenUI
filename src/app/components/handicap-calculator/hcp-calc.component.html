@@ -1,0 +1,178 @@
+<h2>Handicap Calculator</h2>
+<!-- Placings
+
+<div>1st: {{playersPlacing[0]?.playerName}} - {{playersPlacing[0]?.score}}</div>
+<div>2nd: {{playersPlacing[1]?.playerName}} - {{playersPlacing[1]?.score}}</div>
+<div>3rd: {{playersPlacing[2]?.playerName}} - {{playersPlacing[2]?.score}}</div> -->
+<div><strong>City Of Derry</strong></div>
+<div class="hole-info-row sticky-box">
+    <div class="hole-info" *ngFor="let hole of courseArray; let i = index">
+        <strong>{{ i + 1 }}</strong>
+        <div class="hole-par">Par {{ hole.par }}</div>
+        <div class="hole-si">SI {{ hole.si }}</div>
+    </div>
+</div>
+
+<!-- 
+<section *ngFor="let player of players; let i = index">
+    <div>Player Name {{player.playerName}} - Handicap {{player.hcp}}</div>
+
+    <div><strong>Front 9</strong></div>
+    <div class="row">
+        <div class="col-1">
+            <div>Hole 1 - Par {{course.one.par}}, SI {{course.one.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[0]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 2 - Par {{course.two.par}}, SI {{course.two.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[1]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 3 - Par {{course.three.par}}, SI {{course.three.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[2]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 4 - Par {{course.four.par}}, SI {{course.four.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[3]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 5 - Par {{course.five.par}}, SI {{course.five.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[4]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 6 - Par {{course.six.par}}, SI {{course.six.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[5]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 7 - Par {{course.seven.par}}, SI {{course.seven.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[6]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 8 - Par {{course.eight.par}}, SI {{course.eight.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[7]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 9 - Par {{course.nine.par}}, SI {{course.nine.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[8]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-3">
+            Stableford Score
+        </div>
+    </div>
+    <div><strong>Back 9</strong></div>
+    <div class="row">
+        <div class="col-1">
+            <div>Hole 10 - Par {{course.ten.par}}, SI {{course.ten.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[9]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 11 - Par {{course.eleven.par}}, SI {{course.eleven.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[10]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 12 - Par {{course.twelve.par}}, SI {{course.twelve.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[11]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 13 - Par {{course.thirteen.par}}, SI {{course.thirteen.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[12]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 14 - Par {{course.fourteen.par}}, SI {{course.fourteen.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[13]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 15 - Par {{course.fifteen.par}}, SI {{course.fifteen.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[14]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 16 - Par {{course.sixteen.par}}, SI {{course.sixteen.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[15]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 17 - Par {{course.seventeen.par}}, SI {{course.seventeen.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[16]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-1">
+            <div>Hole 18 - Par {{course.eighteen.par}}, SI {{course.eighteen.si}}</div>
+            <div><strong>Score: <input type="number" [(ngModel)]="player.scores[17]" min="0" max="10" /></strong></div>
+        </div>
+        <div class="col-3">
+            <h3>{{getPlayerStablefordScore(player)}}</h3>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-5">
+            <strong>Stableford Score - {{getPlayerStablefordScore(player)}}</strong>
+        </div>
+    </div>
+    <br><br>
+</section> -->
+
+<!-- 6x6x6 -->
+<!-- <section *ngFor="let player of players; let i = index" class="player-section">
+    <div class="player-header">
+        <span class="player-name">{{ player.playerName }}</span>
+        <span class="player-handicap">Handicap: <strong style="border: 1px solid black; padding: 0 2px 0 2px;">{{
+                player.hcp
+                }}</strong></span>
+        <span class="player-score">Score: <strong style="border: 1px solid black; padding: 0 2px 0 2px;">{{
+                getPlayerStablefordScore(player) }}</strong></span>
+    </div>
+
+    <div class="score-grid" *ngFor="let row of [0, 6, 12]">
+        <div class="hole" *ngFor="let h of [0,1,2,3,4,5]">
+            <label>Hole {{ row + h + 1 }}</label>
+            <input type="number" [(ngModel)]="player.scores[row + h]" min="0" max="10" />
+        </div>
+    </div>
+</section> -->
+
+<!-- 9x9 -->
+<section *ngFor="let player of players; let i = index" class="player-section">
+    <div class="player-header">
+        <span class="player-name">{{ player.playerName }}</span>
+        <span class="player-handicap">
+            Handicap:
+            <strong style="border: 1px solid black; padding: 0 2px;">{{ player.hcp }}</strong>
+        </span>
+        <span class="player-score">
+            Score:
+            <strong style="border: 1px solid black; padding: 0 2px;">{{ getPlayerStablefordScore(player) }}</strong>
+        </span>
+    </div>
+
+    <!-- Front 9 -->
+    <div class="row mb-3">
+        <div class="col" *ngFor="let h of [0,1,2,3,4,5,6,7,8]">
+            <label>Hole {{ h + 1 }}</label>
+            <input type="number" [(ngModel)]="player.scores[h]" min="0" max="10" />
+        </div>
+    </div>
+
+    <!-- Back 9 -->
+    <div class="row">
+        <div class="col" *ngFor="let h of [9,10,11,12,13,14,15,16,17]">
+            <label>Hole {{ h + 1 }}</label>
+            <input type="number" [(ngModel)]="player.scores[h]" min="0" max="10" />
+        </div>
+    </div>
+</section>
+
+
+<!-- 1x1 -->
+<!-- <section *ngFor="let player of players; let i = index" class="player-section">
+    <div class="player-header">
+        <span class="player-name">{{ player.playerName }}</span>
+        <span class="player-handicap">Handicap: {{ player.hcp }}</span>
+        <span class="player-score">Score: <strong>{{ getPlayerStablefordScore(player) }}</strong></span>
+    </div>
+
+    <div class="score-grid">
+        <div class="hole" *ngFor="let score of player.scores; let h = index" [class.row-divider]="h === 6 || h === 12">
+            <label>Hole {{ h + 1 }}</label>
+            <input type="number" [(ngModel)]="player.scores[h]" min="0" max="10" />
+        </div>
+    </div>
+</section> -->

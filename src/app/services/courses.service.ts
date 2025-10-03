@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Course {
   id: number;
@@ -17,12 +18,13 @@ export interface Course {
   providedIn: 'root',
 })
 export class CoursesService {
-  private apiUrl = 'https://boggeymenapi.onrender.com/courses';
+  private baseUrl = environment.apiBaseUrl;
+  // private apiUrl = 'https://boggeymenapi.onrender.com/courses';
   // private apiUrl = 'http://localhost:3000/courses';
 
   constructor(private http: HttpClient) {}
 
   getCourses(): Observable<Course[]> {
-    return this.http.get<Course[]>(this.apiUrl);
+    return this.http.get<Course[]>(`${this.baseUrl}/courses`);
   }
 }

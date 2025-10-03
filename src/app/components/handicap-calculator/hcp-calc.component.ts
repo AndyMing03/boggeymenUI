@@ -9,7 +9,7 @@ export interface Hole {
 }
 
 // Define the type for the course
-export interface Course {
+export interface ACourse {
   [hole: string]: Hole;
 }
 
@@ -86,7 +86,6 @@ export class HandicapCalculator implements OnInit {
   }
 
   getPlayerStablefordScore(player: any) {
-    console.log();
     const stablefordPoints = [0, 1, 2, 3, 4, 5, 6]; // Points for scores relative to par
     let totalPoints = 0;
 

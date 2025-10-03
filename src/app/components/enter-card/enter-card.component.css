@@ -1,0 +1,57 @@
+.hole-info-row {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    background-color: #f0f4f8;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.hole-info {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: center;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* course  */
+
+.hole-info-row {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    background-color: #f0f4f8;
+    border-radius: 8px;
+}
+
+.hole-info {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.4;
+}
+
+.hole-label {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.hole-par,
+.hole-si {
+    font-size: 0.55rem;
+    color: #555;
+}

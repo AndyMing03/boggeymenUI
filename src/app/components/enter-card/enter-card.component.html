@@ -1,0 +1,154 @@
+<div class="container my-5">
+    <h2>Submit Card</h2>
+    <p>Select Player and Course</p>
+
+    <div class="d-flex justify-content-left gap-3 mt-4">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                {{ selectedPlayer?.name || 'Select Player' }}
+            </button>
+            <ul class="dropdown-menu">
+                <li *ngFor="let player of players">
+                    <a class="dropdown-item" (click)="onPlayerSelect(player)">
+                        {{ player.name }} - {{ player.handicap }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                {{ selectedCourse?.name || 'Select Course' }}
+            </button>
+            <ul class="dropdown-menu">
+                <li *ngFor="let course of courses">
+                    <a class="dropdown-item" (click)="onCourseSelect(course)">
+                        {{ course.name }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    @if(selectedCourse) {
+    <div class="hole-info-row sticky-box mt-3">
+        <div class="hole-info" *ngFor="let hole of selectedCourse?.holes; let i = index">
+            <strong>{{ i + 1 }}</strong>
+            <div class="hole-par">Par {{ hole.par }}</div>
+            <div class="hole-si">SI {{ hole.si }}</div>
+        </div>
+    </div>
+
+    <!-- Front 9 -->
+    <div class="row mb-3">
+        <div class="col" *ngFor="let h of [0,1,2,3,4,5,6,7,8]; let i = index">
+            <label>Hole {{ h + 1 }}</label>
+            <input #scoreInput type="number" [(ngModel)]="player.scores[h]" min="0" max="10"
+                (input)="onScoreInput(i)" />
+        </div>
+    </div>
+
+    <!-- Back 9 -->
+    <div class="row">
+        <div class="col" *ngFor="let h of [9,10,11,12,13,14,15,16,17]; let i = index">
+            <label>Hole {{ h + 1 }}</label>
+            <input #scoreInput type="number" [(ngModel)]="player.scores[h]" min="0" max="10"
+                (input)="onScoreInput(i + 9)" />
+        </div>
+    </div>
+
+    <!-- <span class="player-score d-flex justify-content-left gap-3 mt-4">
+        Score:
+        <strong style=" border: 1px solid black; padding: 0 2px;">{{ getPlayerStablefordScore(player) }}</strong>
+        Adjustment:
+        @if(getPlayerStablefordScore(player) > 0) {
+        <strong style="border: 1px solid black; padding: 0 2px;">{{calculateNewHcp()}}</strong>
+        } @else {
+        <strong style="border: 1px solid black; padding: 0 2px;">0</strong>
+        }
+        Current Handicap
+        <strong style="border: 1px solid black; padding: 0 2px;">{{this.selectedPlayer.handicap}}</strong>
+        New Handicap
+        @if(getPlayerStablefordScore(player) > 0) {
+        <strong style="border: 1px solid black; padding: 0 2px;">{{(+this.selectedPlayer.handicap) +
+            (+adjustment) | number:'1.1-1'}}
+        </strong>
+        } @else {
+        <strong style="border: 1px solid black; padding: 0 2px;">0</strong>
+        }
+        <button style="background: #2e7d32; border-radius: 4px; color: white"
+            (click)="submitPlayerScore()">Submit</button>
+    </span> -->
+
+
+    <div class="row justify-content-center d-flex justify-content-left gap-3 mt-4">
+        <div class="col-md-12 col-lg-12">
+            <table class="table table-sm table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Score</th>
+                        <th>Adjustment</th>
+                        <th>Current Handicap</th>
+                        <th>New Handicap</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ getPlayerStablefordScore(player) }} </td>
+                        <td>@if(getPlayerStablefordScore(player) > 0) {
+                            {{calculateNewHcp()}}
+                            } @else {
+                            0
+                            }</td>
+                        <td>{{this.selectedPlayer.handicap}}</td>
+                        <td>@if(getPlayerStablefordScore(player) > 0) {
+                            {{(+this.selectedPlayer.handicap) +
+                            (+adjustment) | number:'1.1-1'}}
+
+                            } @else {
+                            0
+                            }</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <button style="background: #2e7d32; border-radius: 4px; color: white" (click)="submitPlayerScore()">Submit</button>
+    }
+
+
+    @if(isLoading) {
+    <app-spinner></app-spinner>
+    }
+    @if (selectedPlayer && !isLoading) {
+    @if (playerHistory.length > 0) {
+    <div class="row justify-content-center d-flex justify-content-left gap-3 mt-5">
+        <h5>Player History</h5>
+        <div class="col-md-12 col-lg-12">
+            <table class="table table-sm table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Old Handicap</th>
+                        <th>New Handicap</th>
+                        <th>Date Changed</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let entry of playerHistory">
+                        <td>{{ entry.old_handicap }}</td>
+                        <td>{{ entry.new_handicap }}</td>
+                        <td>{{ entry.change_date | date: 'mediumDate' }}</td>
+                        <td>{{ entry.reason }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    }
+    @else if (playerHistory.length === 0) {
+    <div class="row justify-content-center d-flex justify-content-left gap-3 mt-5">
+        No Historical Data Available
+    </div>
+    }
+    }
+</div>
